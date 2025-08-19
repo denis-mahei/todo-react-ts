@@ -1,18 +1,17 @@
-import Form from '@/components/Form/Form.tsx';
 import type { Task } from '@/App.tsx';
+import { SiTodoist } from 'react-icons/si';
 
 interface NavBarProps {
   submit: (task: Task) => void;
 }
 
-const NavBar: React.FC<NavBarProps> = ({ submit }) => {
+const NavBar: React.FC<NavBarProps> = () => {
   return (
-    <header className="p-5 p-3 flex justify-between items-center bg-(--bg-navbar) border-b border-b-2">
-      <nav className="flex items-center gap-2 ">
-        <img src="/assets/react.svg" alt="logo" />
+    <header className="p-5 bg-(--bg-navbar) border-b-2">
+      <nav className="flex items-center gap-2">
+        <SiTodoist className="text-4xl" />
         <h1 className="text-2xl font-bold">ToDo List</h1>
       </nav>
-      <Form onAdd={submit} />
     </header>
   );
 };

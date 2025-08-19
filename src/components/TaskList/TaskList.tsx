@@ -1,5 +1,5 @@
-import TaskComponent from '@/components/Task/Task.tsx';
 import type { Task } from '@/App.tsx';
+import TaskComponent from '@/components/Task/Task.tsx';
 
 interface TaskListProps {
   tasks: Task[];
@@ -7,19 +7,18 @@ interface TaskListProps {
   check: (id: string) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, check }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
   return (
-    <section className="p-6">
-      <ul className="grid grid-cols-1 place-items-center gap-y-2 gap-x-2">
+    <section className="p-6 w-full">
+      <ul className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4">
         {tasks.map((task, index) => (
           <li key={task.id} className="w-full border rounded-md p-3.5">
             <TaskComponent
-              num={index}
               text={task.text}
-              onDelete={onDelete}
+              num={index}
               id={task.id}
-              isDone={task.isDone}
-              handleChange={check}
+              check={task.isDone}
+              deadline={task.deadline}
             />
           </li>
         ))}
