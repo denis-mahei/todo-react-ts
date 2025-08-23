@@ -8,8 +8,8 @@ const Sidenav = () => {
   const tasks = useSelector(selectTasks);
 
   return (
-    <main className="flex flex-col md:flex-row p-6">
-      <div className="flex flex-col gap-4 w-2/4">
+    <main className="flex flex-col justify-center md:flex-row p-6">
+      <div className="flex flex-col gap-4 w-full justify-center md:w-2/4">
         <Form />
       </div>
       {tasks.length > 0 ? (

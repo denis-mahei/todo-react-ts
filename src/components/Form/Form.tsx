@@ -32,7 +32,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit(handleAdd)}
-      className="flex items-start gap-2 p-2 md:p-4"
+      className="flex justify-center items-start gap-2 p-2 md:p-4"
     >
       <div className="flex flex-col relative w-full">
         <input
