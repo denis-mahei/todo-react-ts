@@ -2,7 +2,7 @@ import type { Task } from '@/App.tsx';
 import { SiTodoist } from 'react-icons/si';
 
 interface NavBarProps {
-  submit: (task: Task) => void;
+  submit?: (task: Task) => void;
 }
 
 const NavBar: React.FC<NavBarProps> = () => {

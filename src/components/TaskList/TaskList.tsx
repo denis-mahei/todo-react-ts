@@ -7,11 +7,11 @@ interface TaskListProps {
   check: (id: string) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
+const TaskList: React.FC<Partial<TaskListProps>> = ({ tasks }) => {
   return (
     <section className="p-2 md:p-4 w-full">
       <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4">
-        {tasks.map((task, index) => (
+        {tasks?.map((task, index) => (
           <li key={task.id} className="w-full border rounded-md p-3.5">
             <TaskComponent
               text={task.text}
