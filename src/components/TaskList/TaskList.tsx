@@ -1,4 +1,4 @@
-import type { Task } from '@/App.tsx';
+import type { Task } from '@/redux/slices.ts';
 import TaskComponent from '@/components/Task/Task.tsx';
 
 interface TaskListProps {
