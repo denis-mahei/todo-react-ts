@@ -32,17 +32,17 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit(handleAdd)}
-      className="flex justify-center items-start gap-2 p-2 md:p-4"
+      className="flex justify-center items-center gap-2 p-2 w-full md:p-4"
     >
       <div className="flex flex-col relative w-full">
         <input
           type="text"
-          className="w-full rounded-md border-2 transition-colors outline-none focus:border-(--font-color) py-1 px-2 mr-1 text-blue-50 mb-2"
+          className="w-full h-12 rounded-md border transition-colors bg-(--bg-navbar) focus:outline-2 py-1 px-2 mr-1 text-blue-50 shadow-2xl"
           {...register('text', { required: true })}
           placeholder="Type your ToDo..."
         />
         {selected && (
-          <p className="order-1">
+          <p className="order-1 absolute top-13">
             Selected date {selected?.toLocaleDateString()}
           </p>
         )}
@@ -50,7 +50,7 @@ const Form = () => {
           type="button"
           aria-label="Pick deadline"
           onClick={() => setIsCalendarOpen((c) => !c)}
-          className="absolute top-1 right-3 p-0"
+          className="absolute top-1/2 -translate-y-1/2 right-3 p-0"
         >
           <VscCalendar size="24px" />
         </button>
