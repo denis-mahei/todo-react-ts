@@ -42,7 +42,7 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
     --btn-bg: rgb(107 117 219);
-    --btn-hover-bg: rgb(135, 142, 210);
+    --btn-hover-bg: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -128,7 +128,7 @@
     }
 
     button {
-        @apply bg-(--btn-bg) uppercase border-1 text-white rounded-lg px-2 py-1 transition-colors hover:bg-(--btn-hover-bg);
+        @apply uppercase p-2 transition-colors hover:bg-(--btn-hover-bg) rounded-full;
     }
 }
 

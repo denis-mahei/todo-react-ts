@@ -8,7 +8,7 @@ const Sidenav = () => {
   const tasks = useSelector(selectTasks);
 
   return (
-    <main className="flex md:flex-row p-6 sm:flex-col">
+    <main className="flex flex-col md:flex-row p-6">
       <div className="flex flex-col gap-4">
         <Form />
       </div>
