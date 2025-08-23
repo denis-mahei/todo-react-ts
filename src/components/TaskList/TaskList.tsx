@@ -9,8 +9,8 @@ interface TaskListProps {
 
 const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
   return (
-    <section className="p-2 md:p-6 w-full">
-      <ul className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4">
+    <section className="p-2 md:p-4 w-full">
+      <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4">
         {tasks.map((task, index) => (
           <li key={task.id} className="w-full border rounded-md p-3.5">
             <TaskComponent

@@ -7,7 +7,8 @@ import type { Task } from '@/App.tsx';
 import type { AppDispatch } from '@/redux/store.ts';
 import ModalCalendar from '@/ModalCalendar/ModalCalendar.tsx';
 
-import { VscSaveAs, VscCalendar } from 'react-icons/vsc';
+import { VscCalendar } from 'react-icons/vsc';
+import { IoIosAddCircleOutline } from 'react-icons/io';
 import 'react-day-picker/style.css';
 
 const Form = () => {
@@ -31,15 +32,20 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit(handleAdd)}
-      className="flex p-2 flex-wrap items-center justify-between md:p-6"
+      className="flex items-start gap-2 p-2 md:p-4"
     >
-      <div className="flex items-center relative mr-4">
+      <div className="flex flex-col relative w-full">
         <input
           type="text"
           className="w-full rounded-md border-2 transition-colors outline-none focus:border-(--font-color) py-1 px-2 mr-1 text-blue-50 mb-2"
           {...register('text', { required: true })}
           placeholder="Type your ToDo..."
         />
+        {selected && (
+          <p className="order-1">
+            Selected date {selected?.toLocaleDateString()}
+          </p>
+        )}
         <button
           type="button"
           aria-label="Pick deadline"
@@ -50,7 +56,7 @@ const Form = () => {
         </button>
       </div>
       <button type="submit" aria-label="Save task" className="p-0">
-        <VscSaveAs size="34px" />
+        <IoIosAddCircleOutline size="34px" />
       </button>
       {isCalendarOpen && (
         <ModalCalendar>
@@ -71,7 +77,6 @@ const Form = () => {
           />
         </ModalCalendar>
       )}
-      <p className="order-1">Selected date {selected?.toLocaleDateString()}</p>
     </form>
   );
 };

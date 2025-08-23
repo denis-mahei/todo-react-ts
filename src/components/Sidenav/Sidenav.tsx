@@ -9,7 +9,7 @@ const Sidenav = () => {
 
   return (
     <main className="flex flex-col md:flex-row p-6">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-2/4">
         <Form />
       </div>
       {tasks.length > 0 ? (
