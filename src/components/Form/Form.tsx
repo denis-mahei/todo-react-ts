@@ -1,30 +1,33 @@
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { DayPicker } from 'react-day-picker';
-import { useDispatch } from 'react-redux';
-import { addTask } from '@/redux/slices.ts';
-import type { Task } from '@/App.tsx';
-import type { AppDispatch } from '@/redux/store.ts';
-import ModalCalendar from '@/ModalCalendar/ModalCalendar.tsx';
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { DayPicker } from "react-day-picker";
+import { useDispatch } from "react-redux";
+import { addTask } from "@/redux/slices.ts";
+import type { AppDispatch } from "@/redux/store.ts";
+import ModalCalendar from "@/ModalCalendar/ModalCalendar.tsx";
 
-import { VscCalendar } from 'react-icons/vsc';
-import { IoIosAddCircleOutline } from 'react-icons/io';
-import 'react-day-picker/style.css';
+import { VscCalendar } from "react-icons/vsc";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import "react-day-picker/style.css";
+
+type FormFields = {
+  text: string;
+};
 
 const Form = () => {
-  const { register, handleSubmit, reset } = useForm<any>();
+  const { register, handleSubmit, reset } = useForm<FormFields>();
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selected, setSelected] = useState<Date | undefined>();
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleAdd = (task: Task) => {
+  const handleAdd = (task: FormFields) => {
     dispatch(
       addTask({
         id: Date.now().toString(),
         text: task.text,
         isDone: false,
         deadline: selected ? selected.toISOString() : null,
-      })
+      }),
     );
     reset();
   };
@@ -38,7 +41,7 @@ const Form = () => {
         <input
           type="text"
           className="w-full h-12 rounded-md border transition-colors bg-(--bg-navbar) focus:outline-2 py-1 px-2 mr-1 text-blue-50 shadow-2xl"
-          {...register('text', { required: true })}
+          {...register("text", { required: true })}
           placeholder="Type your ToDo..."
         />
         {selected && (
@@ -72,7 +75,7 @@ const Form = () => {
             footer={
               selected
                 ? `Selected: ${selected.toLocaleDateString()}`
-                : 'Pick a day.'
+                : "Pick a day."
             }
           />
         </ModalCalendar>
